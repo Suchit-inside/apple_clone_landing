@@ -16,7 +16,6 @@ const ModelScroll = () => {
     const { setTexture } = useMacbookStore();
     gsap.registerPlugin();
 
-    // Pre-load all feature videos during component mount
     useEffect(() => {
         featureSequence.forEach((feature) => {
             const v = document.createElement('video');
@@ -34,7 +33,6 @@ const ModelScroll = () => {
     }, []);
 
     useGSAP(() => {
-        // 3D MODEL ROTATION ANIMATION
         const modelTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: '#f-canvas',
@@ -45,7 +43,6 @@ const ModelScroll = () => {
             }
         });
 
-        // SYNC THE FEATURE CONTENT
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: '#f-canvas',
@@ -55,12 +52,10 @@ const ModelScroll = () => {
             }
         })
 
-        // 3D SPIN
         if(groupRef.current) {
             modelTimeline.to(groupRef.current.rotation, { y: Math.PI * 2, ease: 'power1.inOut'})
         }
 
-        // Content & Texture Sync
         timeline
             .call(() => setTexture('/videos/feature-1.mp4'))
             .to('.box1', { opacity: 1, y: 0, delay: 1 })

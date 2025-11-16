@@ -1,8 +1,6 @@
 import useMacbookStore from "../store";
 import clsx from "clsx";
 import {Canvas} from "@react-three/fiber";
-import {Box, OrbitControls} from "@react-three/drei";
-import MacbookModel14 from "./models/Macbook-14.jsx";
 
 import StudioLights from "./three/StudioLights.jsx";
 import ModelSwitcher from './three/ModelSwitcher.jsx'
@@ -18,7 +16,7 @@ const ProductViewer = () => {
             <h2>Take a closer look.</h2>
 
             <div className="controls">
-                {/*<p className="info">Macbook Pro | Available in 14" & 16" in Space Gray & Dark colors</p>*/}
+                <p className="info">Macbook Pro | Available in 14" & 16" in Space Gray & Dark colors</p>
 
                 <div className="flex-center gap-5 mt-5">
                     <div className="color-control">
